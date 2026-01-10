@@ -1,10 +1,44 @@
-landing.html
-├── register.html
-├── login.html
-├── dashboard.html
-├── create-request.html
-├── browse.html
-├── request-detail.html
-├── my-requests.html
-├── accepted.html
-└── profile.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<h2>Register</h2>
+
+<form>
+  <input type="text" placeholder="Full Name" required><br><br>
+  <input type="email" placeholder="Email" required><br><br>
+
+  <select required>
+    <option value="">Select Year</option>
+    <option>1st Year</option>
+    <option>2nd Year</option>
+    <option>3rd Year</option>
+    <option>4th Year</option>
+  </select><br><br>
+
+  <select required>
+    <option value="">Select Department</option>
+    <option>CSE</option>
+    <option>IT</option>
+    <option>ECE</option>
+    <option>EE</option>
+    <option>ME</option>
+    <option>CE</option>
+  </select><br><br>
+
+  <input type="password" placeholder="Password" required><br><br>
+
+  <button type="submit">Register</button>
+</form>
+
+<p>
+  Already have an account?
+  <a href="login.html">Login</a>
+</p>
+
+</body>
+</html>
