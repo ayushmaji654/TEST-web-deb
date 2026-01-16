@@ -8,29 +8,30 @@
 
 <h2>Register</h2>
 
-<form>
-  <input type="text" placeholder="Full Name" required><br><br>
-  <input type="email" placeholder="Email" required><br><br>
+<form onsubmit="registerUser(event)">
 
-  <select required>
-    <option value="">Select Year</option>
-    <option>1st Year</option>
-    <option>2nd Year</option>
-    <option>3rd Year</option>
-    <option>4th Year</option>
-  </select><br><br>
+  <input id="name" type="text" placeholder="Full Name" required>
 
-  <select required>
-    <option value="">Select Department</option>
-    <option>CSE</option>
-    <option>IT</option>
-    <option>ECE</option>
-    <option>EE</option>
-    <option>ME</option>
-    <option>CE</option>
-  </select><br><br>
+<input id="email" type="email" placeholder="Email" required>
 
-  <input type="password" placeholder="Password" required><br><br>
+<select id="year" required>
+  <option value="">Select Year</option>
+  <option>1st Year</option>
+  <option>2nd Year</option>
+  <option>3rd Year</option>
+  <option>4th Year</option>
+</select>
+
+<select id="department" required>
+  <option value="">Select Department</option>
+  <option>CSE</option>
+  <option>IT</option>
+  <option>ECE</option>
+  <option>EE</option>
+</select>
+
+<input id="password" type="password" placeholder="Password" required>
+
 
   <button type="submit">Register</button>
 </form>
@@ -39,6 +40,9 @@
   Already have an account?
   <a href="login.html">Login</a>
 </p>
+
+<script src="../js/auth.js"></script>
+
 
 </body>
 </html>

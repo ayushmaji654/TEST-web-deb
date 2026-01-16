@@ -17,13 +17,19 @@
 
 <h2>Profile</h2>
 
-<p>Name: Student Name</p>
-<p>Email: student@email.com</p>
-<p>Year: Year</p>
-<p>Department: Department</p>
+<p>Name: <span id="profileName"></span></p>
+<p>Email: <span id="profileEmail"></span></p>
+<p>Year: <span id="profileYear"></span></p>
+<p>Department: <span id="profileDept"></span></p>
 
+<button onclick="logoutUser()">Logout</button>
 
-<button>Logout</button>
+<script src="../js/auth.js"></script>
+<script>
+  checkLogin();
+  loadProfile();
+</script>
+
 
 </body>
 </html>
