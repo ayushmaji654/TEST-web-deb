@@ -1,5 +1,5 @@
-// REGISTER USER
-function registerUser(event) {
+// register user
+ function registerUser(event) {
   event.preventDefault();
 
   var name = document.getElementById("name").value;
@@ -7,6 +7,15 @@ function registerUser(event) {
   var year = document.getElementById("year").value;
   var department = document.getElementById("department").value;
   var password = document.getElementById("password").value;
+
+  var users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // check if email already exists
+  var exists = users.find(u => u.email === email);
+  if (exists) {
+    alert("User already exists");
+    return;
+  }
 
   var user = {
     name: name,
@@ -16,44 +25,45 @@ function registerUser(event) {
     password: password
   };
 
-  localStorage.setItem("user", JSON.stringify(user));
+  users.push(user);
+  localStorage.setItem("users", JSON.stringify(users));
 
   alert("Registration successful");
-
   window.location.href = "login.html";
 }
 
-// LOGIN USER
+// login user
+
 function loginUser(event) {
   event.preventDefault();
 
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
 
-  var savedUser = JSON.parse(localStorage.getItem("user"));
+  var users = JSON.parse(localStorage.getItem("users")) || [];
 
-  if (savedUser === null) {
-    alert("No user found. Please register first.");
+  var user = users.find(u => u.email === email && u.password === password);
+
+  if (!user) {
+    alert("Wrong email or password");
     return;
   }
 
-  if (email === savedUser.email && password === savedUser.password) {
-    localStorage.setItem("loggedIn", "true");
+  localStorage.setItem("loggedInUser", JSON.stringify(user));
+  localStorage.setItem("loggedIn", "true");
 
-    alert("Login successful");
-
-
-    window.location.href = "dashboard.html";
-  } else {
-    alert("Wrong email or password");
-  }
+  alert("Login successful");
+  window.location.href = "dashboard.html";
 }
+
 
 // LOGOUT USER
 function logoutUser() {
   localStorage.removeItem("loggedIn");
+  localStorage.removeItem("loggedInUser");
   window.location.href = "login.html";
 }
+
 
 // CHECK LOGIN STATUS
 function checkLogin() {
@@ -64,9 +74,8 @@ function checkLogin() {
   }
 }
 
-// LOAD USER DATA ON PROFILE PAGE
 function loadProfile() {
-  var user = JSON.parse(localStorage.getItem("user"));
+  var user = JSON.parse(localStorage.getItem("loggedInUser"));
 
   if (user) {
     document.getElementById("profileName").innerText = user.name;
@@ -75,5 +84,6 @@ function loadProfile() {
     document.getElementById("profileDept").innerText = user.department;
   }
 }
+
 
 

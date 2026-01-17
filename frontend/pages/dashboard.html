@@ -18,17 +18,21 @@
 <h2>Dashboard</h2>
 
 
-<div>
-  <p>Total Requests: 0</p>
-  <p>Accepted: 0</p>
-  <p>Completed: 0</p>
-</div>
+<h3>Stats</h3>
+
+<p>Total Requests: <span id="totalCount">0</span></p>
+<p>Accepted: <span id="acceptedCount">0</span></p>
+<p>Completed: <span id="completedCount">0</span></p>
+
 
 
 <script src="../js/auth.js"></script>
+<script src="../js/requests.js"></script>
 <script>
   checkLogin();
+  loadDashboardStats();
 </script>
+
 
 </body>
 </html>
